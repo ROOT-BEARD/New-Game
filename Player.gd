@@ -18,12 +18,12 @@ func get_input():
 	if Input.is_action_pressed('right'):
 		input.x += 1
 		$Sprite.flip_h = true
-		trash_bag.position.x = -60
+		trash_bag.position.x = 60
 		trash_bag.flip_h = true
 	if Input.is_action_pressed('left'):
 		input.x -= 1
 		$Sprite.flip_h = false
-		trash_bag.position.x = 60
+		trash_bag.position.x = -60
 		trash_bag.flip_h = false
 	if Input.is_action_pressed('down'):
 		input.y += 1

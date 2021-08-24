@@ -5,7 +5,7 @@
 [ext_resource path="res://hold e/frame0002.png" type="Texture" id=3]
 [ext_resource path="res://hold e/frame0003.png" type="Texture" id=4]
 [ext_resource path="res://hold e/frame0011.png" type="Texture" id=5]
-[ext_resource path="res://hold e/frame0013.png" type="Texture" id=6]
+[ext_resource path="res://hold e/frame0013(green).png" type="Texture" id=6]
 [ext_resource path="res://hold e/frame0004.png" type="Texture" id=7]
 [ext_resource path="res://hold e/frame0007.png" type="Texture" id=8]
 [ext_resource path="res://hold e/frame0008.png" type="Texture" id=9]
@@ -15,7 +15,7 @@
 [ext_resource path="res://hold e/frame0005.png" type="Texture" id=13]
 [ext_resource path="res://hold e/frame0012.png" type="Texture" id=14]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "eee"
 length = 0.1
 tracks/0/type = "value"
@@ -31,8 +31,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "play"
+[sub_resource type="Animation" id=2]
 length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -59,8 +58,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "stop"
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
@@ -80,10 +78,10 @@ tracks/0/keys = {
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.5
-anims/eee = SubResource( 3 )
-anims/play = SubResource( 1 )
-anims/stop = SubResource( 2 )
+anims/eee = SubResource( 1 )
+anims/play = SubResource( 2 )
+anims/stop = SubResource( 3 )
