@@ -30,6 +30,9 @@ func get_input():
 	
 	
 	return input
+	
+func get_velocity():
+	return velocity
 
 func get_velocity():
 	return velocity

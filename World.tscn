@@ -39,6 +39,10 @@ position = Vector2( 494.793, -96.2551 )
 position = Vector2( -118.954, -155.548 )
 
 [node name="Dishes" parent="." instance=ExtResource( 1 )]
+position = Vector2( 631.66, -176.471 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 272.543, 97.0436 )
 position = Vector2( 628.485, -137.58 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
