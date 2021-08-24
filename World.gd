@@ -17,3 +17,8 @@ func new_penguin():
 
 func _on_NewPenguinTimer_timeout():
 	new_penguin()
+
+
+func _on_Player_took_out_trash():
+	score += 200
+	scoreCounter.text = "Score: %s" % score
