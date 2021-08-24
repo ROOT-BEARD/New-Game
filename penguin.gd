@@ -4,7 +4,7 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var player = get_node("../YSort/Player")
+onready var player = get_node("../Player")
 var velocity = Vector2()
 
 
