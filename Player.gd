@@ -30,6 +30,9 @@ func get_input():
 	
 	
 	return input
+	
+func get_velocity():
+	return velocity
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
