@@ -4,7 +4,7 @@ var can_do_dishes = true
 var can_push_e = false
 
 onready var animationPlayer = $"hold e/AnimationPlayer"
-onready var sprite = $"hold e/ Sprite"
+onready var sprite = $"hold e/Sprite"
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
@@ -17,17 +17,21 @@ func _physics_process(delta):
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
-		can_push_e = true
-		sprite
+		if can_do_dishes:
+			can_push_e = true
+			sprite.show()
+			animationPlayer.play("eee")
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Player"):
-		can_push_e = false
-		animationPlayer.play("stop")
+		if can_do_dishes:
+			can_push_e = false
+			animationPlayer.play("stop")
+			sprite.hide()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "play":
 		can_do_dishes = false
-		print_debug("nice")
+		print_debug("you did the dishes")
 
 
