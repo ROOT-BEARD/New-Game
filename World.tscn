@@ -56,7 +56,12 @@ position = Vector2( 391.754, 202.734 )
 [node name="TrashCan" parent="." instance=ExtResource( 7 )]
 position = Vector2( 215.172, -69.6325 )
 
+[node name="NewPenguinTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="did_dishes" from="YSort/sink 3/Dishes" to="." method="_on_Dishes_did_dishes"]
+[connection signal="timeout" from="NewPenguinTimer" to="." method="_on_NewPenguinTimer_timeout"]
 
 [editable path="YSort/sink 3"]
 [editable path="YSort/sink 3/Dishes"]
