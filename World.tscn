@@ -41,7 +41,13 @@ position = Vector2( 494.793, -96.2551 )
 position = Vector2( -118.954, -155.548 )
 
 [node name="penguin" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 260, 144 )
+position = Vector2( 274.287, 105.902 )
+
+[node name="penguin2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 267.937, 237.657 )
+
+[node name="penguin3" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 391.754, 202.734 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
