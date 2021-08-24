@@ -6,19 +6,25 @@ export var acceleration = 0.05
 export var runspeed = 400
 
 onready var animationPlayer = $AnimationPlayer
+onready var trash_bag = $TrashBag 
 
 var velocity = Vector2()
 var can_take_trash_bag = true
 var in_range_of_trash = false
+var has_trash_bag = false
 
 func get_input():
 	var input = Vector2()
 	if Input.is_action_pressed('right'):
 		input.x += 1
 		$Sprite.flip_h = true
+		trash_bag.position.x = -60
+		trash_bag.flip_h = true
 	if Input.is_action_pressed('left'):
 		input.x -= 1
 		$Sprite.flip_h = false
+		trash_bag.position.x = 60
+		trash_bag.flip_h = false
 	if Input.is_action_pressed('down'):
 		input.y += 1
 	if Input.is_action_pressed('up'):
@@ -59,11 +65,20 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("Idle")
 	
-	if in_range_of_trash == true:
-		if Input.is_action_just_pressed("E"):
-			print_debug("got trash bag")
+	if has_trash_bag:
+		trash_bag.show()
+	
+	
+	if can_take_trash_bag:
+		if in_range_of_trash == true:
+			if Input.is_action_just_pressed("E"):
+				has_trash_bag = true
 
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("trashcan"):
 		in_range_of_trash = true
+
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("trashcan"):
+		in_range_of_trash = false
