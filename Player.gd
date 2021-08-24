@@ -9,8 +9,6 @@ onready var animationPlayer = $AnimationPlayer
 
 var velocity = Vector2()
 
-var play_idle = true
-
 func get_input():
 	var input = Vector2()
 	if Input.is_action_pressed('right'):
@@ -25,8 +23,10 @@ func get_input():
 		input.y -= 1
 	if Input.is_action_just_pressed("run"):
 		speed += runspeed
+		animationPlayer.playback_speed = 2
 	elif Input.is_action_just_released("run"):
 		speed -= runspeed
+		animationPlayer.playback_speed = .75
 	
 	
 	return input
