@@ -8,6 +8,8 @@ export var runspeed = 400
 onready var animationPlayer = $AnimationPlayer
 
 var velocity = Vector2()
+var can_take_trash_bag = true
+var in_range_of_trash = false
 
 func get_input():
 	var input = Vector2()
@@ -54,3 +56,11 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("Idle")
 	
+	if in_range_of_trash == true:
+		if Input.is_action_just_pressed("E"):
+			print_debug("got trash bag")
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("trashcan"):
+		in_range_of_trash = true

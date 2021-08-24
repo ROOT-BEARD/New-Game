@@ -14,3 +14,9 @@ polygon = PoolVector2Array( -176.509, -63.2814, -195.987, -48.2983, 195.071, -47
 
 [node name="Dishes" parent="." instance=ExtResource( 2 )]
 position = Vector2( 131.393, -47.5494 )
+
+[node name="CollisionShape2D" parent="Dishes/Area2D" index="0"]
+position = Vector2( 5.00566, 35.3732 )
+
+[editable path="Dishes"]
+[editable path="Dishes/hold e"]
