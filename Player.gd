@@ -54,8 +54,3 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("Idle")
 	
-
-func _on_Area2D_area_entered(area):
-	if area.is_in_group("interactable"):
-		if Input.is_action_just_pressed("interact"):
-			print_debug("poop")
