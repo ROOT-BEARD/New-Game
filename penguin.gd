@@ -1,12 +1,10 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var player = get_node("../Player")
+onready var soft_collision = $SoftCollision
 var velocity = Vector2()
-const move_speed = 150
+const move_speed = 250
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,4 +22,9 @@ func follow_player(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (soft_collision.is_colliding() &&
+		!abs(sqrt(((position.x - player.get_position().x) * (position.x - player.get_position().x)) + 
+				((position.y - player.get_position().y) * (position.y - player.get_position().y)))) < 100):
+		velocity += soft_collision.get_push_vector() * delta * 10
+	velocity = move_and_slide(velocity)
 	follow_player(delta)
