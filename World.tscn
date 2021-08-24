@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sink 3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://penguin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TrashCan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://OutsideTrash.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,17 +50,21 @@ position = Vector2( 267.937, 237.657 )
 [node name="penguin3" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 391.754, 202.734 )
 
+[node name="OutsideTrash" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -873.93, 852.531 )
+
+[node name="TrashCan" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 215.172, -69.6325 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Score" parent="CanvasLayer" instance=ExtResource( 3 )]
-
-[node name="TrashCan" parent="." instance=ExtResource( 7 )]
-position = Vector2( 215.172, -69.6325 )
 
 [node name="NewPenguinTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
+[connection signal="took_out_trash" from="YSort/Player" to="." method="_on_Player_took_out_trash"]
 [connection signal="did_dishes" from="YSort/sink 3/Dishes" to="." method="_on_Dishes_did_dishes"]
 [connection signal="timeout" from="NewPenguinTimer" to="." method="_on_NewPenguinTimer_timeout"]
 
