@@ -34,7 +34,10 @@ func push():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
 		is_in_player = true
-		
+	
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("Player"):
+		is_in_player = false	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
