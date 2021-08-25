@@ -1,13 +1,15 @@
 extends Node2D
 
 onready var scoreCounter = $CanvasLayer/Score/Label
+onready var dishes = $"YSort/sink 3/Dishes"
 
 var score = 0
 
 
 func _on_Dishes_did_dishes():
-	score += 100
+	score += 200
 	scoreCounter.text = "Score: %s" % score
+	$CanDoDishesAgain.start()
 
 func new_penguin():
 	print_debug("New Penguin!!!")
@@ -20,5 +22,12 @@ func _on_NewPenguinTimer_timeout():
 
 
 func _on_Player_took_out_trash():
+	score += 200
+	scoreCounter.text = "Score: %s" % score
+
+func _on_CanDoDishesAgain_timeout():
+	dishes.can_do_dishes = true
+
+func _on_Bed_made_bed():
 	score += 200
 	scoreCounter.text = "Score: %s" % score

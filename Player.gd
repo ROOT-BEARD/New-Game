@@ -48,6 +48,11 @@ func get_velocity():
 func get_position():
 	return position
 
+func get_can_get_trash():
+	return can_take_trash_bag
+func get_has_trash_bag():
+	return has_trash_bag
+
 # warning-ignore:unused_argument
 func _physics_process(delta):
 	var direction = get_input()

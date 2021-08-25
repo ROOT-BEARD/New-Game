@@ -18,15 +18,15 @@ func _physics_process(delta):
 	else:
 		has_trash = false
 	
-	if has_trash == true:
+	if can_push_e == false:
 		pushE.hide()
-
+	
 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Player") && can_push_e == true && !has_trash:
+	if area.is_in_group("Player") && can_push_e == true && has_trash:
 		pushE.show()
 
 
 func _on_Area2D_area_exited(area):
-	if area.is_in_group("Player") && can_push_e == true && !has_trash:
+	if area.is_in_group("Player") && can_push_e == true && has_trash:
 		pushE.hide()

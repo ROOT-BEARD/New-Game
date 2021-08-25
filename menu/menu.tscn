@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://menu/menu.gd" type="Script" id=1]
+[ext_resource path="res://MENU SCREEN.png" type="Texture" id=2]
+[ext_resource path="res://menu/start(select).png" type="Texture" id=3]
+[ext_resource path="res://menu/start.png" type="Texture" id=4]
+[ext_resource path="res://menu/quit(select).png" type="Texture" id=5]
+[ext_resource path="res://menu/quit.png" type="Texture" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 550.492
+margin_top = 141.296
+margin_right = 1510.49
+margin_bottom = 1101.3
+rect_scale = Vector2( 0.35, 0.35 )
+focus_neighbour_left = NodePath("../QuitButton")
+focus_neighbour_top = NodePath("../QuitButton")
+focus_neighbour_right = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 662.892
+margin_top = 287.917
+margin_right = 1622.89
+margin_bottom = 1247.92
+rect_scale = Vector2( 0.25, 0.25 )
+focus_neighbour_left = NodePath("../StartButton")
+focus_neighbour_top = NodePath("../StartButton")
+focus_neighbour_right = NodePath("../StartButton")
+focus_neighbour_bottom = NodePath("../StartButton")
+texture_normal = ExtResource( 6 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 500.618, 298.575 )
+scale = Vector2( 0.6, 0.55 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_QuitButton_pressed"]

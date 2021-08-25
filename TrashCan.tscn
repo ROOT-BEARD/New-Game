@@ -28,6 +28,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="push E" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -100 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )

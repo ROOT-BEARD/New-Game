@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://outside trash.png" type="Texture" id=1]
+[ext_resource path="res://OutsideTrash.gd" type="Script" id=2]
+[ext_resource path="res://hold e/frame0000.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 74.0255, 18.8517 )
@@ -9,6 +11,7 @@ extents = Vector2( 74.0255, 18.8517 )
 radius = 84.0119
 
 [node name="OutsideTrash" type="StaticBody2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.7, 0.7 )
@@ -25,3 +28,12 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -11 )
 shape = SubResource( 2 )
+
+[node name="push E" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -100 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
