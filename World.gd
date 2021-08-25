@@ -12,7 +12,6 @@ func _on_Dishes_did_dishes():
 	$CanDoDishesAgain.start()
 
 func new_penguin():
-	print_debug("New Penguin!!!")
 	var penguin = load("res://penguin.tscn").instance()
 	get_node("YSort").add_child(penguin)
 
