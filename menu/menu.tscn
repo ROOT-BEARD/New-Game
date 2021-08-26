@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
-[ext_resource path="res://MENU SCREEN.png" type="Texture" id=2]
+[ext_resource path="res://menu/MENU SCREEN.png" type="Texture" id=2]
 [ext_resource path="res://menu/start(select).png" type="Texture" id=3]
 [ext_resource path="res://menu/start.png" type="Texture" id=4]
 [ext_resource path="res://menu/quit(select).png" type="Texture" id=5]

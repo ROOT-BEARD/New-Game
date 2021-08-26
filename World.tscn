@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Score.tscn" type="PackedScene" id=3]
 [ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sink 3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://bed-dishes/sink 3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://penguin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://TrashCan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://OutsideTrash.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Bed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://trash/TrashCan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://trash/OutsideTrash.tscn" type="PackedScene" id=8]
+[ext_resource path="res://bed-dishes/Bed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://house/house.tscn" type="PackedScene" id=10]
+[ext_resource path="res://music/01 - Benjamin Wyatt - Fashionable Pants and Lost Romance.mp3" type="AudioStream" id=11]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,10 +23,10 @@ collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
-limit_left = -1000
-limit_top = -1000
-limit_right = 1000
-limit_bottom = 1000
+limit_left = -1190
+limit_top = -974
+limit_right = 1606
+limit_bottom = 960
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -39,8 +41,23 @@ position = Vector2( 382.794, 86.165 )
 [node name="sink 3" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 494.793, -96.2551 )
 
+[node name="Sprite" parent="YSort/sink 3" index="0"]
+position = Vector2( 766.46, 261.307 )
+
+[node name="CollisionPolygon2D" parent="YSort/sink 3" index="1"]
+position = Vector2( 769.083, 263.415 )
+
+[node name="Dishes" parent="YSort/sink 3" index="2"]
+position = Vector2( 904.377, 240.239 )
+
+[node name="CollisionShape2D" parent="YSort/sink 3/Dishes/Area2D" index="0"]
+position = Vector2( -0.606645, 15.1689 )
+
+[node name="Sprite" parent="YSort/sink 3/Dishes/hold e" index="0"]
+position = Vector2( 1.12244, -20.2043 )
+
 [node name="NPC2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -118.954, -155.548 )
+position = Vector2( 471.046, -305.548 )
 
 [node name="penguin" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 274.287, 105.902 )
@@ -52,16 +69,20 @@ position = Vector2( 267.937, 237.657 )
 position = Vector2( 391.754, 202.734 )
 
 [node name="OutsideTrash" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( -873.93, 852.531 )
+position = Vector2( 889.433, 203.679 )
 
 [node name="TrashCan" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 215.172, -69.6325 )
 
 [node name="TrashCan2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( -470.479, -786.775 )
+position = Vector2( 1375.74, 300.568 )
 
 [node name="Bed" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( -735.492, -779.306 )
+position = Vector2( 1137.15, 334.466 )
+
+[node name="house" parent="." instance=ExtResource( 10 )]
+scale = Vector2( 1, 1 )
+z_index = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -69,11 +90,14 @@ position = Vector2( -735.492, -779.306 )
 
 [node name="NewPenguinTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="CanDoDishesAgain" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
+
+[node name="samantha" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
 
 [connection signal="took_out_trash" from="YSort/Player" to="." method="_on_Player_took_out_trash"]
 [connection signal="did_dishes" from="YSort/sink 3/Dishes" to="." method="_on_Dishes_did_dishes"]

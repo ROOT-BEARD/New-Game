@@ -5,6 +5,9 @@ onready var dishes = $"YSort/sink 3/Dishes"
 
 var score = 0
 
+func _ready():
+	$samantha.play()
+
 
 func _on_Dishes_did_dishes():
 	score += 200
