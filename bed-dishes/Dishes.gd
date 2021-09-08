@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var can_do_dishes = true
+var can_do_dishes = false
 var can_push_e = false
 
 onready var animationPlayer = $"hold e/AnimationPlayer"
@@ -23,6 +23,8 @@ func _on_Area2D_area_entered(area):
 			can_push_e = true
 			sprite.show()
 			animationPlayer.play("eee")
+		else:
+			can_push_e = false
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Player"):
@@ -34,6 +36,7 @@ func _on_Area2D_area_exited(area):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "play":
 		can_do_dishes = false
+		can_push_e = false
 		print_debug("you did the dishes")
 		emit_signal("did_dishes")
 

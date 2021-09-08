@@ -18,10 +18,10 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer"]
-margin_left = 550.492
-margin_top = 141.296
-margin_right = 1510.49
-margin_bottom = 1101.3
+margin_left = 685.463
+margin_top = 199.13
+margin_right = 1645.46
+margin_bottom = 1159.13
 rect_scale = Vector2( 0.35, 0.35 )
 focus_neighbour_left = NodePath("../QuitButton")
 focus_neighbour_top = NodePath("../QuitButton")
@@ -34,10 +34,10 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="TextureButton" parent="CanvasLayer"]
-margin_left = 662.892
-margin_top = 287.917
-margin_right = 1622.89
-margin_bottom = 1247.92
+margin_left = 845.792
+margin_top = 326.866
+margin_right = 1805.79
+margin_bottom = 1286.87
 rect_scale = Vector2( 0.25, 0.25 )
 focus_neighbour_left = NodePath("../StartButton")
 focus_neighbour_top = NodePath("../StartButton")
@@ -50,8 +50,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 500.618, 298.575 )
-scale = Vector2( 0.6, 0.55 )
+position = Vector2( 661.634, 316.205 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_StartButton_pressed"]

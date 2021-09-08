@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fart lofi (slowed + reverb).mp3-39b84439addb53f2d6fdb50b3a7ad39d.mp3str"
+
+[deps]
+
+source_file="res://music/fart lofi (slowed + reverb).mp3"
+dest_files=[ "res://.import/fart lofi (slowed + reverb).mp3-39b84439addb53f2d6fdb50b3a7ad39d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

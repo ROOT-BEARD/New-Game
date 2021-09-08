@@ -1,12 +1,13 @@
 extends StaticBody2D
 
-var can_make_bed = true
+var can_make_bed = false
 var can_push_e = false
+
+signal made_bed
 
 onready var animationPlayer = $"hold e/AnimationPlayer"
 onready var sprite = $"hold e/Sprite"
 
-signal made_bed
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
@@ -23,6 +24,8 @@ func _on_Area2D_area_entered(area):
 			can_push_e = true
 			sprite.show()
 			animationPlayer.play("eee")
+		else:
+			can_push_e = false
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Player"):

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outside trash.png-be0100723a3295f641e2da1152653955.stex"
+path="res://.import/bat.png-8c5f11e0110a5921c6efd8f18e634996.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://trash/outside trash.png"
-dest_files=[ "res://.import/outside trash.png-be0100723a3295f641e2da1152653955.stex" ]
+source_file="res://bat.png"
+dest_files=[ "res://.import/bat.png-8c5f11e0110a5921c6efd8f18e634996.stex" ]
 
 [params]
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://NPC/frame0009.png" type="Texture" id=7]
 [ext_resource path="res://NPC/frame0005.png" type="Texture" id=8]
 [ext_resource path="res://NPC/frame0004.png" type="Texture" id=9]
-[ext_resource path="res://trash/trashbag.png" type="Texture" id=10]
+[ext_resource path="res://bat.png" type="Texture" id=10]
 [ext_resource path="res://player sprites/frame0000.png" type="Texture" id=11]
 [ext_resource path="res://player sprites/frame0003.png" type="Texture" id=12]
 [ext_resource path="res://player sprites/frame0002.png" type="Texture" id=13]
@@ -78,11 +78,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TrashBag" type="Sprite" parent="."]
-visible = false
-position = Vector2( -60, 40 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 10 )
+[node name="DeadTimer" type="Timer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -110,5 +106,10 @@ show_behind_parent = true
 position = Vector2( 0.294998, 1.7085 )
 shape = SubResource( 5 )
 
+[node name="bat" type="Sprite" parent="."]
+position = Vector2( 23, -21 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[connection signal="timeout" from="DeadTimer" to="." method="_on_DeadTimer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

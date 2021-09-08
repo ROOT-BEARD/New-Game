@@ -1,16 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Score.tscn" type="PackedScene" id=3]
-[ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=4]
 [ext_resource path="res://bed-dishes/sink 3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://penguin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://trash/TrashCan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://trash/OutsideTrash.tscn" type="PackedScene" id=8]
 [ext_resource path="res://bed-dishes/Bed.tscn" type="PackedScene" id=9]
 [ext_resource path="res://house/house.tscn" type="PackedScene" id=10]
-[ext_resource path="res://music/01 - Benjamin Wyatt - Fashionable Pants and Lost Romance.mp3" type="AudioStream" id=11]
+[ext_resource path="res://WhatToDoNext.tscn" type="PackedScene" id=11]
+[ext_resource path="res://toilet.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -35,11 +33,8 @@ smoothing_speed = 3.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="NPC" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 382.794, 86.165 )
-
 [node name="sink 3" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 494.793, -96.2551 )
+position = Vector2( -127.242, -777.023 )
 
 [node name="Sprite" parent="YSort/sink 3" index="0"]
 position = Vector2( 766.46, 261.307 )
@@ -56,29 +51,14 @@ position = Vector2( -0.606645, 15.1689 )
 [node name="Sprite" parent="YSort/sink 3/Dishes/hold e" index="0"]
 position = Vector2( 1.12244, -20.2043 )
 
-[node name="NPC2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 471.046, -305.548 )
-
 [node name="penguin" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 274.287, 105.902 )
 
-[node name="penguin2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 267.937, 237.657 )
-
-[node name="penguin3" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 391.754, 202.734 )
-
-[node name="OutsideTrash" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 889.433, 203.679 )
-
-[node name="TrashCan" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 215.172, -69.6325 )
-
-[node name="TrashCan2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 1375.74, 300.568 )
-
 [node name="Bed" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 1137.15, 334.466 )
+position = Vector2( -333.844, 99.5342 )
+
+[node name="toilet" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 1239.42, -542.388 )
 
 [node name="house" parent="." instance=ExtResource( 10 )]
 scale = Vector2( 1, 1 )
@@ -88,23 +68,21 @@ z_index = -1
 
 [node name="Score" parent="CanvasLayer" instance=ExtResource( 3 )]
 
-[node name="NewPenguinTimer" type="Timer" parent="."]
+[node name="WhatToDoNext" parent="CanvasLayer" instance=ExtResource( 11 )]
+
+[node name="timers" type="Node2D" parent="."]
+
+[node name="NewPenguinTimer" type="Timer" parent="timers"]
 wait_time = 3.0
 
-[node name="CanDoDishesAgain" type="Timer" parent="."]
-wait_time = 20.0
-one_shot = true
-
-[node name="samantha" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 11 )
-autoplay = true
-
-[connection signal="took_out_trash" from="YSort/Player" to="." method="_on_Player_took_out_trash"]
 [connection signal="did_dishes" from="YSort/sink 3/Dishes" to="." method="_on_Dishes_did_dishes"]
 [connection signal="made_bed" from="YSort/Bed" to="." method="_on_Bed_made_bed"]
-[connection signal="timeout" from="NewPenguinTimer" to="." method="_on_NewPenguinTimer_timeout"]
-[connection signal="timeout" from="CanDoDishesAgain" to="." method="_on_CanDoDishesAgain_timeout"]
+[connection signal="uncloged_toilet" from="YSort/toilet" to="." method="_on_toilet_uncloged_toilet"]
+[connection signal="timeout" from="timers/NewPenguinTimer" to="." method="_on_NewPenguinTimer_timeout"]
 
+[editable path="YSort/Player"]
 [editable path="YSort/sink 3"]
 [editable path="YSort/sink 3/Dishes"]
 [editable path="YSort/sink 3/Dishes/hold e"]
+[editable path="YSort/Bed"]
+[editable path="YSort/Bed/hold e"]

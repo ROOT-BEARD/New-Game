@@ -3,7 +3,7 @@
 [ext_resource path="res://house/house(poorly colored).png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 49.7878, 452.144 )
+extents = Vector2( 49.7878, 367.943 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 460, 50 )
@@ -21,10 +21,10 @@ extents = Vector2( 130, 48 )
 extents = Vector2( 498.545, 48 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 50.4123, 366.572 )
+extents = Vector2( 50.4123, 309.806 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 705.941, 100 )
+extents = Vector2( 705.941, 40.3194 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 50.3407, 318.919 )
@@ -62,7 +62,7 @@ position = Vector2( -870, 720 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2( -470, 185.545 )
+position = Vector2( -470, 167.545 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
@@ -78,11 +78,11 @@ position = Vector2( 599.842, 18.7317 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
-position = Vector2( -299.752, -387.759 )
+position = Vector2( -299.752, -333.759 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
-position = Vector2( 389.271, -657.246 )
+position = Vector2( 389.271, -603.792 )
 shape = SubResource( 8 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="."]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://click_e.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="RapidlyPressE" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+margin_right = 586.0
+margin_bottom = 82.0
+theme = ExtResource( 1 )
+custom_styles/bg = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.647059, 0.937255, 0.67451, 1 )
+custom_colors/font_color_shadow = Color( 0.647059, 0.937255, 0.67451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
